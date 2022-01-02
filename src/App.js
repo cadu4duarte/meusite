@@ -1,7 +1,27 @@
-import React from "react";
+import React, {Component} from "react";
 
-function App() {
-  return <h1>Olá Mundo</h1>
-}
+class App extends Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      hora: "00:00:00"
+    };
+  }
+
+  componentDidMount() {
+    setInterval(()=>{
+      this.setState({ hora: new Date().toLocaleTimeString()})
+    }, 1000);
+  }
+
+  render() {
+    return(
+      <div>
+        <h1>Meu Projeto {this.state.hora}</h1>
+      </div>
+    );
+  }
+} 
 
 export default App;
